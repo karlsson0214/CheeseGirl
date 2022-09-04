@@ -9,11 +9,30 @@ public class Game : MonoBehaviour
     void Start()
     { 
 
-
+        // cell size is suposed to be 1.0
         float cellSize = wallPrefab.GetComponent<Renderer>().bounds.size.x;
         int x = 0;
         int y = 0;
-        Instantiate(wallPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        int yMax = (int)Camera.main.orthographicSize;
+        int xMax = (int)(Camera.main.orthographicSize * Screen.width / Screen.height);
+        Debug.Log("xMax: " + xMax);
+        Debug.Log("yMax: " + yMax);
+        x = -xMax;
+        while (x <= xMax)
+        {
+            Instantiate(wallPrefab, new Vector3(x, -yMax, 0), Quaternion.identity);
+            Instantiate(wallPrefab, new Vector3(x, yMax, 0), Quaternion.identity);
+            x = (int)(x + cellSize);
+        }
+        y = -yMax + 1;
+        while (y < yMax)
+        {
+            Instantiate(wallPrefab, new Vector3(-xMax, y, 0), Quaternion.identity);
+            Instantiate(wallPrefab, new Vector3(xMax, y, 0), Quaternion.identity);
+            y = (int)(y + cellSize);
+        }
+        
+
 
     }
 
