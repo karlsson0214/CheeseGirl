@@ -20,14 +20,18 @@ public class Game : MonoBehaviour
         x = -xMax;
         while (x <= xMax)
         {
+            //wall at bottom
             Instantiate(wallPrefab, new Vector3(x, -yMax, 0), Quaternion.identity);
+            // wall at top
             Instantiate(wallPrefab, new Vector3(x, yMax, 0), Quaternion.identity);
             x = (int)(x + cellSize);
         }
         y = -yMax + 1;
         while (y < yMax)
         {
+            // wall left
             Instantiate(wallPrefab, new Vector3(-xMax, y, 0), Quaternion.identity);
+            // wall right
             Instantiate(wallPrefab, new Vector3(xMax, y, 0), Quaternion.identity);
             y = (int)(y + cellSize);
         }
