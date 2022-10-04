@@ -28,6 +28,7 @@ public class Door : MonoBehaviour
         
     }
 
+
     public void Open()
     {
         GetComponent<SpriteRenderer>().sprite = openDoorSprite;
