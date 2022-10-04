@@ -207,6 +207,7 @@ public class Game : MonoBehaviour
             }
             // add garding troll
             Instantiate(trollPrefab, new Vector3(x, y, 0), Quaternion.identity);
+            
             noGrassPoints.Add(new Vector2(x, y));
 
         }
